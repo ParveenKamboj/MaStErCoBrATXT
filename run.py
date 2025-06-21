@@ -6,10 +6,10 @@ import sys
 
 def run_app():
     try:
-        # This assumes you have an app.py in your project root.
-        subprocess.run([sys.executable, "app.py"], check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"Web app process error: {e}")
+        from keep_alive import keep_alive
+        keep_alive()  # Flask server start hoga yahan se
+    except Exception as e:
+        print(f"Web app error: {e}")
         sys.exit(1)
 
 def run_bot():
